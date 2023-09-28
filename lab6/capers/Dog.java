@@ -7,10 +7,12 @@ import static capers.Utils.*;
 /** Represents a dog that can be serialized.
  * @author TODO
 */
-public class Dog { // TODO
+public class Dog implements Serializable { // TODO
+    /** Current Working Directory. */
+    static final File CWD = new File(System.getProperty("user.dir"));
 
     /** Folder that dogs live in. */
-    static final File DOG_FOLDER = null; // TODO (hint: look at the `join`
+    static final File DOG_FOLDER = join(CWD, ".capers", "dogs"); // TODO (hint: look at the `join`
                                          //      function in Utils)
 
     /** Age of dog. */
@@ -39,8 +41,14 @@ public class Dog { // TODO
      * @return Dog read from file
      */
     public static Dog fromFile(String name) {
-        // TODO (hint: look at the Utils file)
-        return null;
+        // TODO (hint: look at the Utils file)        
+        File newDoggyInfo = join(DOG_FOLDER, name);        
+        Class doggy = Dog.class; 
+        System.out.println("------------------");
+        System.out.println(doggy);
+        System.out.println("------------------");        
+        Dog doggyObj = Utils.readObject(newDoggyInfo, Dog.class);
+        return doggyObj;
     }
 
     /**
@@ -57,6 +65,17 @@ public class Dog { // TODO
      */
     public void saveDog() {
         // TODO (hint: don't forget dog names are unique)
+        File newDoggyInfo = join(DOG_FOLDER, this.name);        
+        // String info = "age: " + this.age + ", breed: " + this.breed + ", name: " + this.name;        
+        String info = this.age + "," + this.breed + "," + this.name;        
+        if (newDoggyInfo.exists()) {            
+            writeContents(newDoggyInfo, info);        
+            writeContents(newDoggyInfo, info);        
+        }
+        else {
+            // System.out.println(this.name);
+            writeContents(newDoggyInfo, info);        
+        }
     }
 
     @Override
