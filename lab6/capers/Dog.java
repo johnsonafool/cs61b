@@ -44,10 +44,7 @@ public class Dog implements Serializable { // TODO
         // TODO (hint: look at the Utils file)        
         File newDoggyInfo = join(DOG_FOLDER, name);        
         Class doggy = Dog.class; 
-        System.out.println("------------------");
-        System.out.println(doggy);
-        System.out.println("------------------");        
-        Dog doggyObj = Utils.readObject(newDoggyInfo, Dog.class);
+        Dog doggyObj = readObject(newDoggyInfo, Dog.class);
         return doggyObj;
     }
 
@@ -65,16 +62,14 @@ public class Dog implements Serializable { // TODO
      */
     public void saveDog() {
         // TODO (hint: don't forget dog names are unique)
-        File newDoggyInfo = join(DOG_FOLDER, this.name);        
-        // String info = "age: " + this.age + ", breed: " + this.breed + ", name: " + this.name;        
-        String info = this.age + "," + this.breed + "," + this.name;        
+        File newDoggyInfo = join(DOG_FOLDER, name);        
+        // should handle already existing dog file
         if (newDoggyInfo.exists()) {            
-            writeContents(newDoggyInfo, info);        
-            writeContents(newDoggyInfo, info);        
+            writeObject(newDoggyInfo, this);                    
         }
         else {
             // System.out.println(this.name);
-            writeContents(newDoggyInfo, info);        
+            writeObject(newDoggyInfo, this);        
         }
     }
 

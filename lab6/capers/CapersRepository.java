@@ -89,16 +89,8 @@ public class CapersRepository {
      */
     public static void celebrateBirthday(String name) {
         // TODO           
-        File[] listOfFiles = DOG_FOLDER.listFiles();
-  
-        // Display the names of the files
-        for (int i = 0; i < listOfFiles.length; i++) {
-            String fileName = listOfFiles[i].getName();
-            if (name.equals(fileName)) {                
-                // TODO: clarify the correct format for saving the doggy 
-                Dog doggyObj = Dog.fromFile(name);
-                doggyObj.haveBirthday();
-            }
-        }
+        Dog dogFromFile = Dog.fromFile(name);
+        dogFromFile.haveBirthday();
+        dogFromFile.saveDog();
     }
 }

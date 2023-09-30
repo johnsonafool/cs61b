@@ -7,7 +7,6 @@ import java.util.Observable;
  *  @author P. N. Hilfinger
  */
 class BoardLogger implements Observer {
-
     /** A line to separate each move. */
     private static final String LINE = "---------------------";
 
