@@ -10,29 +10,20 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO: what if args is empty?
-        String firstArg = args[0];
-        System.out.println(firstArg);
+        if (args.length == 0) {
+            CustomUtils.exitWithError("Please enter a command.");
+        }
+        String firstArg = args[0];        
         switch(firstArg) {
-            case "init":
+            case "init" -> {
                 // TODO: handle the `init` command
+                Repository.init(); 
                 break;
-            case "add":
+            }
+            case "add" -> {
                 // TODO: handle the `add [filename]` command
                 break;
-            case "commit":
-                break;
-            case "rm":
-                break;
-            case "log":
-                break;
-            case "global-log":
-                break;
-            case "find":
-                break;
-            case "status":
-                break;
-            case "checkout":
-                break;                
+            }
             // TODO: FILL THE REST IN
         }
     }

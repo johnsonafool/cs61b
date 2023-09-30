@@ -23,4 +23,13 @@ public class Commit {
     private String message;
 
     /* TODO: fill in the rest of this class. */
+    public void save() {
+        // @TODO- implment method
+        System.out.println("Saving commit...");
+    }
+
+    public String getId() {
+        // @TODO- implment method
+        return "123";
+    }
 }
